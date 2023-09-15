@@ -1,0 +1,71 @@
+Wed Jun 14 16:19:28 EDT 2023
+c0904a-s11.ufhpc
+/blue/kgraim/zfg2013/Input/HDOCK
+   1.200000      0.2121759    
+ 
+ The dimensions of the ENERGY Grid are:  97 193 151
+ 
+ Start to calculate the ENERGY Grid
+ 
+ Grid calculation is completed  10%
+ Grid calculation is completed  20%
+ Grid calculation is completed  30%
+ Grid calculation is completed  40%
+ Grid calculation is completed  50%
+ Grid calculation is completed  60%
+ Grid calculation is completed  70%
+ Grid calculation is completed  80%
+ Grid calculation is completed  90%
+ Grid calculation is completed 100%
+ 
+ The dimensions of the FFT Grid are:  75 120  96
+ 
+ This docking has    4392 roations
+ Start protein-protein docking calculations:
+ 
+ This docking calculation will take about    159.86  seconds
+ 
+   100      3.16    156.22
+   200      6.22    152.58
+   300      9.27    148.94
+   400     12.33    145.30
+   500     15.37    141.66
+   600     18.41    138.02
+   700     21.45    134.38
+   800     24.53    130.74
+   900     27.57    127.10
+  1000     30.63    123.46
+  1100     33.67    119.82
+  1200     36.72    116.18
+  1300     39.78    112.54
+  1400     42.83    108.90
+  1500     45.91    105.26
+  1600     48.96    101.62
+  1700     52.03     97.98
+  1800     55.09     94.34
+  1900     58.13     90.70
+  2000     61.22     87.06
+  2100     64.28     83.42
+  2200     67.33     79.78
+  2300     70.39     76.14
+  2400     73.44     72.50
+  2500     76.50     68.87
+  2600     79.57     65.23
+  2700     82.62     61.59
+  2800     85.68     57.95
+  2900     88.75     54.31
+  3000     91.78     50.67
+  3100     94.83     47.03
+  3200     97.90     43.39
+  3300    100.96     39.75
+  3400    104.04     36.11
+  3500    107.08     32.47
+  3600    110.13     28.83
+  3700    113.20     25.19
+  3800    116.24     21.55
+  3900    119.28     17.91
+  4000    122.35     14.27
+  4100    125.38     10.63
+  4200    128.41      6.99
+  4300    131.44      3.35
+ The actual consumed time is    134.21 seconds

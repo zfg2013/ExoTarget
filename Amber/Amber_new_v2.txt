@@ -1,0 +1,122 @@
+1. Load open on demand
+2. Load jupyter labs from hipergator
+3. go to your home folder
+4. Pull up a terminal.
+5 Type the following commands
+
+module load intel/2018.1.163 amber/16
+export PATH=$HPC_AMBER_DIR/AmberTools/bin:$PATH
+
+pdb4amber -i 6gb1.pdb  -o p_6gb1.pdb --reduce --dry
+
+#split your protein complex into the separate proteins
+
+#copy and input the following block
+
+cat <<EOF >> leap.in
+source leaprc.protein.ff14SB
+source leaprc.water.tip3p
+source leaprc.gaff2
+protein_complex = loadPdb p_6gb1.pdb
+com = loadPdB p_com.pdb
+A = loadPdB p_A.pdb
+B = loadPdB p_B.pdb
+saveamberparm protein_com complex.prmtop complex.inpcrd
+saveamberparm A A.prmtop A.inpcrd
+saveamberparm B B.prmtop B.inpcrd
+charge proten_complex
+solvatebox protein_complex TIP3BOX 12.0
+saveamberparm protein_complex complex_solvated.prmtop complex_sovlated.inpcrd
+quit
+EOF
+
+tleap -f leap.in > leap.log
+
+cat <<EOF >> min.in
+minimise the protein complex
+ &cntrl
+  imin=1,maxcyc=1000,ncyc=500,
+  cut=8.0,ntb=1,
+  ntc=2,ntf=2,
+  ntpr=100,
+  ntr=1, restraintmask=':1-242',
+  restraint_wt=2.0
+ /
+EOF
+
+cat <<EOF >> file heat.in
+heat the protein complex
+&cntrl
+  imin=0,irest=0,ntx=1,
+  nstlim=25000,dt=0.002,
+  ntc=2,ntf=2,
+  cut=8.0, ntb=1,
+  ntpr=500, ntwx=500,
+  ntt=3, gamma_ln=2.0,
+  tempi=0.0, temp0=300.0, ig=-1,
+  ntr=1, restraintmask=':1-242',
+  restraint_wt=2.0,
+  nmropt=1
+ /
+ &wt TYPE='TEMP0', istep1=0, istep2=25000,
+  value1=0.1, value2=300.0, /
+ &wt TYPE='END' /
+EOF
+
+
+cat <<EOF >> file density.in
+heat stage part 2
+&cntrl
+  imin=0,irest=0,ntx=1,
+  nstlim=25000,dt=0.002,
+  ntc=2,ntf=2,
+  cut=8.0, ntb=1,
+  ntpr=500, ntwx=500,
+  ntt=3, gamma_ln=2.0,
+  tempi=0.0, temp0=300.0, ig=-1,
+  ntr=1, restraintmask=':1-242',
+  restraint_wt=2.0,
+  nmropt=1
+ /
+ &wt TYPE='TEMP0', istep1=0, istep2=25000,
+  value1=0.1, value2=300.0, /
+ &wt TYPE='END' /
+EOF
+
+cat <<EOF >> file equil.in
+finally equilibriated
+&cntrl
+  imin=0,irest=0,ntx=1,
+  nstlim=25000,dt=0.002,
+  ntc=2,ntf=2,
+  cut=8.0, ntb=1,
+  ntpr=500, ntwx=500,
+  ntt=3, gamma_ln=2.0,
+  tempi=0.0, temp0=300.0, ig=-1,
+  ntr=1, restraintmask=':1-242',
+  restraint_wt=2.0,
+  nmropt=1
+ /
+ &wt TYPE='TEMP0', istep1=0, istep2=25000,
+  value1=0.1, value2=300.0, /
+ &wt TYPE='END' /
+
+
+#Step 1
+sander -O -i min.in -o min.out -p complex_solvated.prmtop -c complex_solvated.inpcrd \
+-r min.rst -ref complex_solvated.inpcrd
+
+#Step 2
+sander -O -i heat.in -o heat.out -p complex_solvated.prmtop -c min.rst \
+-r heat.rst -x heat.mdcrd -ref min.rst
+gzip -9 heat.mdcrd
+
+#Step 3
+sander -O -i density.in -o density.out -p complex_solvated.prmtop -c heat.rst \
+-r density.rst -x density.mdcrd -ref heat.rst
+gzip -9 density.mdcrd
+
+#Step 4
+sander -O -i equil.in -o equil.out -p complex_solvated.prmtop -c density.rst \
+-r equil.rst -x equil.mdcrd
+gzip -9 equil.mdcrd

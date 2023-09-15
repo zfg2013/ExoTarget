@@ -1,0 +1,9 @@
+minimise the protein complex
+ &cntrl
+  imin=1,maxcyc=1000,ncyc=500,
+  cut=8.0,
+  ntc=2,ntf=2,
+  ntpr=100,
+  ntr=1, restraintmask=':1-242',
+  restraint_wt=2.0
+ /

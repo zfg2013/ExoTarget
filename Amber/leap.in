@@ -1,0 +1,14 @@
+source leaprc.protein.ff14SB
+source leaprc.water.tip3p
+source leaprc.gaff2
+protein_complex = loadPdb p_6gb1.pdb
+A = loadPdB p_A.pdb
+B = loadPdB p_B.pdb
+set default PBRadii mbondi2
+saveamberparm protein_complex complex.prmtop complex.inpcrd
+saveamberparm A A.prmtop A.inpcrd
+saveamberparm B B.prmtop B.inpcrd
+charge protein_complex
+solvatebox protein_complex TIP3BOX 12.0
+saveamberparm protein_complex complex_solvated.prmtop complex_solvated.inpcrd
+quit
