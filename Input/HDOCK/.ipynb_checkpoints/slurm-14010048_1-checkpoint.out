@@ -1,0 +1,64 @@
+Tue Oct 31 12:24:19 EDT 2023
+c0801a-s23.ufhpc
+/blue/kgraim/zfg2013/ExoSearch/Input/HDOCK
+   1.200000      0.1252137    
+ 
+ The dimensions of the ENERGY Grid are:  67  91  64
+ 
+ Start to calculate the ENERGY Grid
+ 
+ Grid calculation is completed  50%
+ Grid calculation is completed 100%
+ 
+ The dimensions of the FFT Grid are:  54  64  54
+ 
+ This docking has    4392 roations
+ Start protein-protein docking calculations:
+ 
+ This docking calculation will take about     26.54  seconds
+ 
+   100      0.59     25.94
+   200      1.18     25.34
+   300      1.76     24.73
+   400      2.35     24.13
+   500      2.94     23.52
+   600      3.52     22.92
+   700      4.10     22.31
+   800      4.69     21.71
+   900      5.29     21.10
+  1000      5.86     20.50
+  1100      6.44     19.90
+  1200      7.03     19.29
+  1300      7.62     18.69
+  1400      8.22     18.08
+  1500      8.81     17.48
+  1600      9.39     16.87
+  1700      9.98     16.27
+  1800     10.57     15.67
+  1900     11.16     15.06
+  2000     11.75     14.46
+  2100     12.34     13.85
+  2200     12.93     13.25
+  2300     13.52     12.64
+  2400     14.10     12.04
+  2500     14.69     11.43
+  2600     15.28     10.83
+  2700     15.88     10.23
+  2800     16.47      9.62
+  2900     17.05      9.02
+  3000     17.63      8.41
+  3100     18.22      7.81
+  3200     18.81      7.20
+  3300     19.40      6.60
+  3400     19.98      6.00
+  3500     20.55      5.39
+  3600     21.13      4.79
+  3700     21.72      4.18
+  3800     22.31      3.58
+  3900     22.88      2.97
+  4000     23.46      2.37
+  4100     24.05      1.76
+  4200     24.63      1.16
+  4300     25.22      0.56
+ The actual consumed time is     25.75 seconds
+cp: 'model_1.pdb' and 'model_1.pdb' are the same file
