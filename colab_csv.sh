@@ -55,13 +55,12 @@ module load gcc/12.2.0
 pip3 install tensorflow --upgrade
 
 #set paths
-export PATH="//blue/kgraim/zfg2013/localcolabfold/colabfold-conda/bin:$PATH"
-export PATH="//blue/kgraim/zfg2013/Input/"$csv_fasta":$PATH"
+export PATH="//blue/kgraim/zfg2013/ExoSearch/localcolabfold/colabfold-conda/bin:$PATH"
+export PATH="//blue/kgraim/zfg2013/ExoSearch/Input:$PATH"
 LaunchDir=$PWD
 
 #make an outfiles directory
-COLABFOLD_DIR="//blue/kgraim/"$USER"/COLAB_OUTFILES"
+COLABFOLD_DIR="/blue/kgraim/zfg2013/ExoSearch/COLAB_OUTFILES"
 mkdir -p "$COLABFOLD_DIR"
-cd "/blue/kgraim/zfg2013"
 
 colabfold_batch --templates --num-models=3 --use-gpu-relax --num-recycle=15 --amber $file $COLABFOLD_DIR/$name/

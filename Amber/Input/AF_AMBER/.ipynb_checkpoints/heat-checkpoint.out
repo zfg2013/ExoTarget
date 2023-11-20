@@ -1,0 +1,225 @@
+
+          -------------------------------------------------------
+          Amber 16 SANDER                              2016
+          -------------------------------------------------------
+
+| Run on 10/20/2023 at 14:18:06
+
+|   Executable path: sander
+| Working directory: /blue/kgraim/zfg2013/ExoSearch
+|          Hostname: c0700a-s2
+
+  [-O]verwriting output
+
+File Assignments:
+|  MDIN: /blue/kgraim/zfg2013/ExoSearch/Amber/Input/AF_AMBER/heat.in           
+| MDOUT: /blue/kgraim/zfg2013/ExoSearch/Amber/Input/AF_AMBER/heat.out          
+|INPCRD: /blue/kgraim/zfg2013/ExoSearch/Amber/Input/AF_AMBER/min.rst           
+|  PARM: /blue/kgraim/zfg2013/ExoSearch/Amber/Input/AF_AMBER/cs.prmtop         
+|RESTRT: /blue/kgraim/zfg2013/ExoSearch/Amber/Input/AF_AMBER/heat.rst          
+|  REFC: /blue/kgraim/zfg2013/ExoSearch/Amber/Input/AF_AMBER/min.rst           
+| MDVEL: mdvel                                                                 
+| MDFRC: mdfrc                                                                 
+|  MDEN: mden                                                                  
+| MDCRD: /blue/kgraim/zfg2013/ExoSearch/Amber/Input/AF_AMBER/heat.mdcrd        
+|MDINFO: mdinfo                                                                
+|  MTMD: mtmd                                                                  
+|INPDIP: inpdip                                                                
+|RSTDIP: rstdip                                                                
+|INPTRA: inptraj                                                               
+
+ 
+ Here is the input file:
+ 
+heat the protein complex                                                       
+&cntrl                                                                         
+  imin=0,irest=0,ntx=1,                                                        
+  nstlim=25000,dt=0.002,                                                       
+  ntc=2,ntf=2,                                                                 
+  cut=8.0, ntb=1,                                                              
+  ntpr=500, ntwx=500,                                                          
+  ntt=3, gamma_ln=2.0,                                                         
+  tempi=0.0, temp0=300.0, ig=-1,                                               
+  ntr=1, restraintmask=':1-242',                                               
+  restraint_wt=2.0,                                                            
+  nmropt=1                                                                     
+ /                                                                             
+ &wt TYPE='TEMP0', istep1=0, istep2=25000,                                     
+  value1=0.1, value2=300.0, /                                                  
+ &wt TYPE='END' /                                                              
+
+--------------------------------------------------------------------------------
+   1.  RESOURCE   USE: 
+--------------------------------------------------------------------------------
+
+| Flags:                                                                        
+ getting box info from netcdf restart file
+| NetCDF restart box info found
+|Largest sphere to fit in unit cell has radius =    32.372
+| New format PARM file being parsed.
+| Version =    1.000 Date = 10/20/23 Time = 14:16:26
+ NATOM  =   33025 NTYPES =      16 NBONH =   31925 MBONA  =    1141
+ NTHETH =    2323 MTHETA =    1561 NPHIH =    4820 MPHIA  =    4805
+ NHPARM =       0 NPARM  =       0 NNB   =   52973 NRES   =   10441
+ NBONA  =    1141 NTHETA =    1561 NPHIA =    4805 NUMBND =      65
+ NUMANG =     148 NPTRA  =     185 NATYP =      33 NPHB   =       1
+ IFBOX  =       1 NMXRS  =      24 IFCAP =       0 NEXTRA =       0
+ NCOPY  =       0
+
+
+|     Memory Use     Allocated
+|     Real             2400284
+|     Hollerith         109518
+|     Integer          1231742
+|     Max Pairs       11008333
+|     nblistReal        396300
+|     nblist Int       1735042
+|       Total            76866 kbytes
+
+| Note: 1-4 EEL scale factors are being read from the topology file.
+
+| Note: 1-4 VDW scale factors are being read from the topology file.
+| Duplicated    0 dihedrals
+| Duplicated    0 dihedrals
+
+     BOX TYPE: RECTILINEAR
+Note: ig = -1. Setting random seed to   397067 based on wallclock time in microseconds.
+
+--------------------------------------------------------------------------------
+   2.  CONTROL  DATA  FOR  THE  RUN
+--------------------------------------------------------------------------------
+
+default_name                                                                    
+
+General flags:
+     imin    =       0, nmropt  =       1
+
+Nature and format of input:
+     ntx     =       1, irest   =       0, ntrx    =       1
+
+Nature and format of output:
+     ntxo    =       2, ntpr    =     500, ntrx    =       1, ntwr    =   25000
+     iwrap   =       0, ntwx    =     500, ntwv    =       0, ntwe    =       0
+     ioutfm  =       1, ntwprt  =       0, idecomp =       0, rbornstat=      0
+
+Potential function:
+     ntf     =       2, ntb     =       1, igb     =       0, nsnb    =      25
+     ipol    =       0, gbsa    =       0, iesp    =       0
+     dielc   =   1.00000, cut     =   8.00000, intdiel =   1.00000
+
+Frozen or restrained atoms:
+     ibelly  =       0, ntr     =       1
+     restraint_wt =   2.00000
+
+Molecular dynamics:
+     nstlim  =     25000, nscm    =         0, nrespa  =         1
+     t       =   0.00000, dt      =   0.00200, vlimit  =  20.00000
+
+Langevin dynamics temperature regulation:
+     ig      =  397067
+     temp0   = 300.00000, tempi   =   0.00000, gamma_ln=   2.00000
+
+SHAKE:
+     ntc     =       2, jfastw  =       0
+     tol     =   0.00001
+
+NMR refinement options:
+     iscale  =       0, noeskp  =       1, ipnlty  =       1, mxsub   =       1
+     scalm   = 100.00000, pencut  =   0.10000, tausw   =   0.10000
+
+Ewald parameters:
+     verbose =       0, ew_type =       0, nbflag  =       1, use_pme =       1
+     vdwmeth =       1, eedmeth =       1, netfrc  =       1
+     Box X =   85.235   Box Y =   64.744   Box Z =   74.743
+     Alpha =   90.000   Beta  =   90.000   Gamma =   90.000
+     NFFT1 =   90       NFFT2 =   64       NFFT3 =   75
+     Cutoff=    8.000   Tol   =0.100E-04
+     Ewald Coefficient =  0.34864
+     Interpolation order =    4
+|  INFO: Old style inpcrd file read
+
+
+    LOADING THE CONSTRAINED ATOMS AS GROUPS
+
+
+   5.  REFERENCE ATOM COORDINATES
+
+  defa
+     Mask :1-242; matches  2428 atoms
+
+--------------------------------------------------------------------------------
+   3.  ATOMIC COORDINATES AND VELOCITIES
+--------------------------------------------------------------------------------
+
+default_name                                                                    
+ begin time read from input coords =     0.000 ps
+
+
+
+           Begin reading energy term weight changes/NMR restraints
+ WEIGHT CHANGES:
+ TEMP0         0  25000    0.100000  300.000000      0      0
+
+ RESTRAINTS:
+                          ** No restraint defined **
+
+                  Done reading weight changes/NMR restraints
+
+
+ Number of triangulated 3-point waters found:    10304
+
+     Sum of charges from parm topology file =  -7.00000005
+     Assuming uniform neutralizing plasma
+
+--------------------------------------------------------------------------------
+   4.  RESULTS
+--------------------------------------------------------------------------------
+
+|  # of SOLUTE  degrees of freedom (RNDFP):   67150.
+|  # of SOLVENT degrees of freedom (RNDFS):       0.
+|  NDFMIN =   67150.     NUM_NOSHAKE =      0     CORRECTED RNDFP =   67150.
+|  TOTAL # of degrees of freedom (RNDF) =   67150.
+ ---------------------------------------------------
+ APPROXIMATING switch and d/dx switch using CUBIC SPLINE INTERPOLATION
+ using   5000.0 points per unit in tabled values
+ TESTING RELATIVE ERROR over r ranging from 0.0 to cutoff
+| CHECK switch(x): max rel err =   0.2738E-14   at   2.422500
+| CHECK d/dx switch(x): max rel err =   0.8314E-11   at   2.736960
+ ---------------------------------------------------
+| Local SIZE OF NONBOND LIST =    5689894
+| TOTAL SIZE OF NONBOND LIST =    5689894
+
+ NSTEP =        0   TIME(PS) =       0.000  TEMP(K) =     0.00  PRESS =     0.0
+ Etot   =    -94431.4397  EKtot   =         0.0000  EPtot      =    -94431.4397
+ BOND   =       102.5832  ANGLE   =       320.8953  DIHED      =      1672.7735
+ 1-4 NB =       482.0766  1-4 EEL =      5739.1053  VDWAALS    =      5529.2550
+ EELEC  =   -108278.1285  EHBOND  =         0.0000  RESTRAINT  =         0.0000
+ Ewald error estimate:   0.5647E-03
+ ------------------------------------------------------------------------------
+
+ NMR restraints: Bond =    0.000   Angle =     0.000   Torsion =     0.000
+===============================================================================
+
+ NSTEP =      500   TIME(PS) =       1.000  TEMP(K) =    46.48  PRESS =     0.0
+ Etot   =   -117649.0321  EKtot   =      3101.3983  EPtot      =   -120750.4305
+ BOND   =        77.8791  ANGLE   =       288.3002  DIHED      =      1649.9110
+ 1-4 NB =       447.1329  1-4 EEL =      5662.6750  VDWAALS    =     20963.4897
+ EELEC  =   -150100.9810  EHBOND  =         0.0000  RESTRAINT  =       261.1627
+ EAMBER (non-restraint)  =   -121011.5931
+ Ewald error estimate:   0.2287E-03
+ ------------------------------------------------------------------------------
+
+ NMR restraints: Bond =    0.000   Angle =     0.000   Torsion =     0.000
+===============================================================================
+
+ NSTEP =     1000   TIME(PS) =       2.000  TEMP(K) =    18.60  PRESS =     0.0
+ Etot   =   -122792.5801  EKtot   =      1240.8679  EPtot      =   -124033.4480
+ BOND   =        77.3116  ANGLE   =       297.8264  DIHED      =      1645.2265
+ 1-4 NB =       447.0201  1-4 EEL =      5675.5180  VDWAALS    =     23068.9327
+ EELEC  =   -155494.3395  EHBOND  =         0.0000  RESTRAINT  =       249.0562
+ EAMBER (non-restraint)  =   -124282.5041
+ Ewald error estimate:   0.3335E-03
+ ------------------------------------------------------------------------------
+
+ NMR restraints: Bond =    0.000   Angle =     0.000   Torsion =     0.000
+===============================================================================

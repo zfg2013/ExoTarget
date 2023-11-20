@@ -15,11 +15,11 @@ date;hostname;pwd
 
 #modules
 module purge 
-module load intel/2019.1.144 openmpi/4.0.1 fftw/3.3.8
+module load cuda/12.2.2 gcc/12.2.0 openmpi/4.1.5 fftw/3.3.10 
 
 #paths
-export PATH="/blue/kgraim/zfg2013/HDOCKlite-v1.1/:$PATH"
-export PATH="/blue/kgraim/zfg2013/Input/HDOCK:$PATH"
+export PATH="/blue/kgraim/zfg2013/ExoSearch/HDOCKlite-v1.1/:$PATH"
+export PATH="/blue/kgraim/zfg2013/ExoSearch/Input/HDOCK:$PATH"
 
 # Sort files by name
 receptors=$(ls *rec*.pdb | sort | sed -n "${SLURM_ARRAY_TASK_ID}p")
@@ -34,6 +34,6 @@ name=${SLURM_ARRAY_TASK_ID}
 hdock "$receptors" "$ligands" -out "$name".out
 createpl "$name".out "${name}_top1.pdb" -nmax 1 -complex -models
 cp "model_1.pdb" "model_${SLURM_ARRAY_TASK_ID}.pdb"
-mv "model_${SLURM_ARRAY_TASK_ID}.pdb" "Output/model_${SLURM_ARRAY_TASK_ID}.pdb"
-
+mv -f "model_${SLURM_ARRAY_TASK_ID}.pdb" "Output/model_${SLURM_ARRAY_TASK_ID}.pdb"
+cp "Output/model_${SLURM_ARRAY_TASK_ID}.pdb" "/blue/kgraim/zfg2013/ExoSearch/Output/Processed/HDOCK/"
 exit 0

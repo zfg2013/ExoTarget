@@ -1,0 +1,28 @@
+#config file using TOML
+[DIRECTORY]
+INPUT = "/blue/kgraim/zfg2013/ExoSearch/Input" 
+ROOT = "/blue/kgraim/zfg2013/ExoSearch" 
+HDOCK = "/blue/kgraim/zfg2013/ExoSearch/Input/HDOCK"
+
+
+[SLURM]
+account = "kgraim"
+qos = "kgraim"
+job = "ES"
+tasks = 5
+   
+#NOTES
+
+##COLABFOLD
+###SOMETIMES WE NEED TO UPDATE THE FOLLOWING DIRECTORIES IN THE SLURM FILE AND BIN FOLDER FOR COLABFOLD: 
+###"//blue/kgraim/zfg2013/ExoSearch/localcolabfold/colabfold-conda/bin:$PATH"
+###config.config['DIRECTORY']['INPUT']
+
+
+##HDOCK
+        
+###This block will apply HDOCK after verifying the inputs are correct from the previous 
+###block in the same directory
+###and then do molecular docking with HDOCK to output the top 3 models. 
+###Model outputs from .out are rotations (1-6)
+###then binding confidence (7), RMSD (8), X (9).

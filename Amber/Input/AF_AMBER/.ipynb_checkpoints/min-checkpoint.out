@@ -1,0 +1,194 @@
+
+          -------------------------------------------------------
+          Amber 16 SANDER                              2016
+          -------------------------------------------------------
+
+| Run on 10/20/2023 at 14:16:27
+
+|   Executable path: sander
+| Working directory: /blue/kgraim/zfg2013/ExoSearch
+|          Hostname: c0700a-s2
+
+  [-O]verwriting output
+
+File Assignments:
+|  MDIN: /blue/kgraim/zfg2013/ExoSearch/Amber/Input/AF_AMBER/min.in            
+| MDOUT: /blue/kgraim/zfg2013/ExoSearch/Amber/Input/AF_AMBER/min.out           
+|INPCRD: /blue/kgraim/zfg2013/ExoSearch/Amber/Input/AF_AMBER/cs.inpcrd         
+|  PARM: /blue/kgraim/zfg2013/ExoSearch/Amber/Input/AF_AMBER/cs.prmtop         
+|RESTRT: /blue/kgraim/zfg2013/ExoSearch/Amber/Input/AF_AMBER/min.rst           
+|  REFC: /blue/kgraim/zfg2013/ExoSearch/Amber/Input/AF_AMBER/cs.inpcrd         
+| MDVEL: mdvel                                                                 
+| MDFRC: mdfrc                                                                 
+|  MDEN: mden                                                                  
+| MDCRD: mdcrd                                                                 
+|MDINFO: mdinfo                                                                
+|  MTMD: mtmd                                                                  
+|INPDIP: inpdip                                                                
+|RSTDIP: rstdip                                                                
+|INPTRA: inptraj                                                               
+
+ 
+ Here is the input file:
+ 
+minimise the protein complex                                                   
+ &cntrl                                                                        
+  imin=1,maxcyc=1000,ncyc=500,                                                 
+  cut=8.0,ntb=1,                                                               
+  ntc=2,ntf=2,                                                                 
+  ntpr=100,                                                                    
+  ntr=1, restraintmask=':1-242',                                               
+  restraint_wt=2.0                                                             
+ /                                                                             
+
+--------------------------------------------------------------------------------
+   1.  RESOURCE   USE: 
+--------------------------------------------------------------------------------
+
+| Flags:                                                                        
+ getting new box info from bottom of inpcrd
+|  INFO: Old style inpcrd file read
+
+| peek_ewald_inpcrd: Box info found
+|Largest sphere to fit in unit cell has radius =    32.372
+| New format PARM file being parsed.
+| Version =    1.000 Date = 10/20/23 Time = 14:16:26
+ NATOM  =   33025 NTYPES =      16 NBONH =   31925 MBONA  =    1141
+ NTHETH =    2323 MTHETA =    1561 NPHIH =    4820 MPHIA  =    4805
+ NHPARM =       0 NPARM  =       0 NNB   =   52973 NRES   =   10441
+ NBONA  =    1141 NTHETA =    1561 NPHIA =    4805 NUMBND =      65
+ NUMANG =     148 NPTRA  =     185 NATYP =      33 NPHB   =       1
+ IFBOX  =       1 NMXRS  =      24 IFCAP =       0 NEXTRA =       0
+ NCOPY  =       0
+
+
+|     Memory Use     Allocated
+|     Real             2796755
+|     Hollerith         109518
+|     Integer          1231697
+|     Max Pairs       11008333
+|     nblistReal        396300
+|     nblist Int       1735042
+|       Total            79963 kbytes
+
+| Note: 1-4 EEL scale factors are being read from the topology file.
+
+| Note: 1-4 VDW scale factors are being read from the topology file.
+| Duplicated    0 dihedrals
+| Duplicated    0 dihedrals
+
+     BOX TYPE: RECTILINEAR
+
+--------------------------------------------------------------------------------
+   2.  CONTROL  DATA  FOR  THE  RUN
+--------------------------------------------------------------------------------
+
+default_name                                                                    
+
+General flags:
+     imin    =       1, nmropt  =       0
+
+Nature and format of input:
+     ntx     =       1, irest   =       0, ntrx    =       1
+
+Nature and format of output:
+     ntxo    =       2, ntpr    =     100, ntrx    =       1, ntwr    =       1
+     iwrap   =       0, ntwx    =       0, ntwv    =       0, ntwe    =       0
+     ioutfm  =       1, ntwprt  =       0, idecomp =       0, rbornstat=      0
+
+Potential function:
+     ntf     =       2, ntb     =       1, igb     =       0, nsnb    =      25
+     ipol    =       0, gbsa    =       0, iesp    =       0
+     dielc   =   1.00000, cut     =   8.00000, intdiel =   1.00000
+
+Frozen or restrained atoms:
+     ibelly  =       0, ntr     =       1
+     restraint_wt =   2.00000
+
+Energy minimization:
+     maxcyc  =    1000, ncyc    =     500, ntmin   =       1
+     dx0     =   0.01000, drms    =   0.00010
+
+SHAKE:
+     ntc     =       2, jfastw  =       0
+     tol     =   0.00001
+
+Ewald parameters:
+     verbose =       0, ew_type =       0, nbflag  =       1, use_pme =       1
+     vdwmeth =       1, eedmeth =       1, netfrc  =       0
+     Box X =   85.235   Box Y =   64.744   Box Z =   74.743
+     Alpha =   90.000   Beta  =   90.000   Gamma =   90.000
+     NFFT1 =   90       NFFT2 =   64       NFFT3 =   75
+     Cutoff=    8.000   Tol   =0.100E-04
+     Ewald Coefficient =  0.34864
+     Interpolation order =    4
+
+    LOADING THE CONSTRAINED ATOMS AS GROUPS
+
+
+   5.  REFERENCE ATOM COORDINATES
+
+  defa
+     Mask :1-242; matches  2428 atoms
+
+--------------------------------------------------------------------------------
+   3.  ATOMIC COORDINATES AND VELOCITIES
+--------------------------------------------------------------------------------
+
+default_name                                                                    
+ begin time read from input coords =     0.000 ps
+
+ Number of triangulated 3-point waters found:    10304
+
+     Sum of charges from parm topology file =  -7.00000005
+     Assuming uniform neutralizing plasma
+
+--------------------------------------------------------------------------------
+   4.  RESULTS
+--------------------------------------------------------------------------------
+
+ ---------------------------------------------------
+ APPROXIMATING switch and d/dx switch using CUBIC SPLINE INTERPOLATION
+ using   5000.0 points per unit in tabled values
+ TESTING RELATIVE ERROR over r ranging from 0.0 to cutoff
+| CHECK switch(x): max rel err =   0.2738E-14   at   2.422500
+| CHECK d/dx switch(x): max rel err =   0.8314E-11   at   2.736960
+ ---------------------------------------------------
+| Local SIZE OF NONBOND LIST =    5687236
+| TOTAL SIZE OF NONBOND LIST =    5687236
+
+
+   NSTEP       ENERGY          RMS            GMAX         NAME    NUMBER
+      1      -8.7795E+04     2.3045E+01     2.6315E+03     N          10
+
+ BOND    =     1913.7998  ANGLE   =      477.4009  DIHED      =     1691.3180
+ VDWAALS =     9877.7694  EEL     =  -108147.8169  HBOND      =        0.0000
+ 1-4 VDW =      515.1727  1-4 EEL =     5876.8881  RESTRAINT  =        0.0691
+ EAMBER  =   -87795.4680
+
+
+   NSTEP       ENERGY          RMS            GMAX         NAME    NUMBER
+    100      -9.4377E+04     1.4007E+01     4.1269E+01     O        9842
+
+ BOND    =      102.5838  ANGLE   =      320.8960  DIHED      =     1672.7735
+ VDWAALS =     5529.2999  EEL     =  -108278.2128  HBOND      =        0.0000
+ 1-4 VDW =      482.0769  1-4 EEL =     5739.1070  RESTRAINT  =       54.8966
+ EAMBER  =   -94431.4757
+
+
+   NSTEP       ENERGY          RMS            GMAX         NAME    NUMBER
+    200      -9.4377E+04     1.4007E+01     4.1269E+01     O        9842
+
+ BOND    =      102.5836  ANGLE   =      320.8958  DIHED      =     1672.7735
+ VDWAALS =     5529.2894  EEL     =  -108278.1938  HBOND      =        0.0000
+ 1-4 VDW =      482.0768  1-4 EEL =     5739.1065  RESTRAINT  =       54.8971
+ EAMBER  =   -94431.4681
+
+
+   NSTEP       ENERGY          RMS            GMAX         NAME    NUMBER
+    300      -9.4377E+04     1.4007E+01     4.1269E+01     O        9842
+
+ BOND    =      102.5835  ANGLE   =      320.8957  DIHED      =     1672.7735
+ VDWAALS =     5529.2789  EEL     =  -108278.1749  HBOND      =        0.0000
+ 1-4 VDW =      482.0768  1-4 EEL =     5739.1060  RESTRAINT  =       54.8975
+ EAMBER  =   -94431.4605
