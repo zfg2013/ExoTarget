@@ -1,0 +1,33 @@
+Fri Sep 29 09:54:03 EDT 2023
+c0801a-s29.ufhpc
+/blue/kgraim/zfg2013/ExoSearch/Input/HDOCK
+   1.200000      0.1058723    
+ 
+ The dimensions of the ENERGY Grid are:  67  91  64
+ 
+ Start to calculate the ENERGY Grid
+ 
+ Grid calculation is completed  50%
+ Grid calculation is completed 100%
+ 
+ The dimensions of the FFT Grid are:  48  56  45
+ 
+ This docking has    4392 roations
+ Start protein-protein docking calculations:
+ 
+ This docking calculation will take about     24.58  seconds
+ 
+   100      0.53     24.02
+   200      1.07     23.46
+   300      1.59     22.90
+   400      2.13     22.34
+   500      2.67     21.79
+   600      3.20     21.23
+   700      3.74     20.67
+   800      4.28     20.11
+   900      4.82     19.55
+  1000      5.35     18.99
+  1100      5.89     18.43
+  1200      6.43     17.87
+  1300      6.96     17.31
+  1400      7.50     16.75
