@@ -1,0 +1,18 @@
+name: SE3nv-cuda118
+channels:
+  - defaults
+  - conda-forge
+  - pytorch
+  - dglteam
+  - nvidia
+dependencies:
+  - python=3.9
+  - pytorch=2.0.1
+  - torchaudio
+  - torchvision
+  - cudatoolkit=11.8
+  - icecream
+  - pip
+  - pip:
+    - hydra-core
+    - pyrsistent
